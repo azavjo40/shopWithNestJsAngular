@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand navbar-light bg-warning">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/allProduct">Product</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuth">
+          <a class="nav-link" routerLink="/cretaeProduct">Create</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/basketProducts">Basket</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/allOrders">Orders</a>
+        </li>
+        <li class="nav-item" (click)="logout()" *ngIf="isAuth">
+          <a class="nav-link">Log out</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!isAuth">
+          <a class="nav-link" routerLink="/login">Log in</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuth">
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,20 @@
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { IErrorMessage } from './interface';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+})
+export class AppComponent implements OnInit {
+  constructor(private store: Store<IErrorMessage>) {}
+  errorMessage: string = '';
+  ngOnInit() {
+    this.storeErrorMessage();
+  }
+  storeErrorMessage() {
+    this.store
+      .select('core')
+      .subscribe((err) => (this.errorMessage = err.errorMessage));
+  }
+}

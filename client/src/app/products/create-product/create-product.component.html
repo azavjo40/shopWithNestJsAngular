@@ -1,0 +1,62 @@
+<div class="contCreate">
+  <form class="mb-2 marging">
+    <label for="exampleFormControlInput1" class="form-label marging"
+      >Create
+    </label>
+
+    <input
+      type="name"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="name"
+      name="name"
+      [value]="form.name"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.name"
+    />
+    <input
+      type="type"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="type"
+      name="type"
+      [value]="form.type"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.type"
+    />
+    <input
+      type="cost"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="cost"
+      name="cost"
+      [value]="form.age"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.cost"
+    />
+    <input
+      type="paragraph"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="paragraph"
+      name="paragraph"
+      [value]="form.paragraph"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.paragraph"
+    />
+    <input
+      type="file"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="password"
+      name="image"
+      required
+      (input)="uploadFile($event)"
+    />
+    <button (click)="create()" class="btn btn-dark marging">Send</button>
+  </form>
+</div>

@@ -1,0 +1,24 @@
+.card {
+  margin-top: 10px;
+}
+.basket {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+img {
+  width: 80px;
+  height: 80px;
+}
+button {
+  height: 25px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  right: 100px;
+}
+p {
+  margin: 0px;
+  padding: 0px;
+}

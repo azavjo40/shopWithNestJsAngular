@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="basket">
+    <div>
+      <blockquote class="blockquote mb-0">
+        <h5 class="card-title">{{ basket.name }}: {{ basket.type }}</h5>
+        <p class="card-text">Cost: {{ basket.cost }} pl</p>
+        <p class="card-text">{{ basket.paragraph }}</p>
+      </blockquote>
+    </div>
+    <button
+      (click)="remove(basket)"
+      type="button"
+      class="btn btn-outline-danger"
+    >
+      Remove
+    </button>
+    <div>
+      <img [src]="SERVICEURL + basket.image" alt="image" />
+    </div>
+  </div>
+</div>

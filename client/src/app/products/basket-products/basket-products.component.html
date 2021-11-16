@@ -1,0 +1,8 @@
+<div class="container">
+  <h3>Basket</h3>
+  <app-basket-products-card
+    *ngFor="let basket of basketP"
+    [basket]="basket"
+  ></app-basket-products-card>
+  <a routerLink="/buyProduct" type="button" class="btn btn-info btnBay">Bay</a>
+</div>

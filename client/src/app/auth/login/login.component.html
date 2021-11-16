@@ -1,0 +1,33 @@
+<div class="contLogin">
+  <form class="mb-2 marging">
+    <label for="exampleFormControlInput1" class="form-label marging"
+      >Login
+    </label>
+
+    <input
+      type="email"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+      name="email"
+      required
+      [value]="form.email"
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.email"
+    />
+    <input
+      type="password"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="password"
+      name="password"
+      [value]="form.password"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.password"
+    />
+    <button (click)="login()" type="button" class="btn btn-dark marging">
+      Login
+    </button>
+  </form>
+</div>

@@ -1,0 +1,54 @@
+<div class="contBuy">
+  <form class="mb-2 marging">
+    <label for="exampleFormControlInput1" class="form-label marging"
+      >Address
+    </label>
+
+    <input
+      type="text"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="name"
+      name="name"
+      [value]="form.name"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.name"
+    />
+    <input
+      type="text"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="phone"
+      name="phone"
+      [value]="form.phone"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.phone"
+    />
+    <input
+      type="text"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="address"
+      name="address"
+      [value]="form.address"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.address"
+    />
+    <input
+      type="text"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="totalAmount"
+      name="totalAmount"
+      [value]="form.totalAmount"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.totalAmount"
+      readonly="true"
+    />
+    <button (click)="buyProduct()" class="btn btn-dark marging">Buy</button>
+  </form>
+</div>

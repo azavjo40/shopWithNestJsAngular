@@ -1,0 +1,19 @@
+.contRegister {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    input {
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 10px;
+      width: 100px;
+    }
+  }
+}

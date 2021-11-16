@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem">
+  <img [src]="SERVICEURL + product.image" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <h5 class="card-title">{{ product.cost }} pl</h5>
+    <p class="card-text">{{ product.paragraph }}</p>
+  </div>
+  <div class="card-body">
+    <a (click)="addBasket(product)" routerLink="/buyProduct" class="card-link"
+      >Buy-now</a
+    >
+    <a (click)="addBasket(product)" class="card-link">Add-basket</a>
+  </div>
+</div>

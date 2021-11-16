@@ -1,0 +1,25 @@
+<div>
+  <div *ngIf="showChangeCard" class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title">Data Clint</h5>
+      <p class="card-text">
+        (Name: {{ order.name }}) (Phone: {{ order.phone }}) (Address:
+        {{ order.address }}) (Total Amount: {{ order.totalAmount }})
+      </p>
+      <button (click)="changeCard()" class="btn btn-primary">Show Order</button>
+    </div>
+  </div>
+
+  <div *ngIf="!showChangeCard" class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title">Order</h5>
+      <p *ngFor="let item of order.order" class="card-text">
+        (Product: {{ item.name }}) (Type: {{ item.type }}) (Cost:
+        {{ item.cost }})
+      </p>
+      <button (click)="changeCard()" class="btn btn-primary">
+        Show Data Clint
+      </button>
+    </div>
+  </div>
+</div>

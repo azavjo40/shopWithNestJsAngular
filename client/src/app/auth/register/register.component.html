@@ -1,0 +1,64 @@
+<div class="contRegister">
+  <form class="mb-2 marging">
+    <label for="exampleFormControlInput1" class="form-label marging"
+      >Register
+    </label>
+
+    <input
+      type="text"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="name"
+      name="name"
+      [value]="form.name"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.name"
+    />
+    <input
+      type="text"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="lastName"
+      name="lastName"
+      [value]="form.lastName"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.lastName"
+    />
+    <input
+      type="text"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="age"
+      name="age"
+      [value]="form.age"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.age"
+    />
+    <input
+      type="email"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+      name="email"
+      [value]="form.email"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.email"
+    />
+    <input
+      type="password"
+      class="form-control marging"
+      id="exampleFormControlInput1"
+      placeholder="password"
+      name="password"
+      [value]="form.password"
+      required
+      (ngModelChange)="changeHandler()"
+      [(ngModel)]="form.password"
+    />
+    <button (click)="register()" class="btn btn-dark marging">Register</button>
+  </form>
+</div>
