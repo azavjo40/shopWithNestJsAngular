@@ -10,6 +10,6 @@ export class OrdersService {
 
   allOrders() {
     const storage: any = JSON.parse(localStorage.getItem(LOCALUSERDATA) as any);
-    return this.http.get(`${SERVICEURL}product/allOrders/${storage.userId}`);
+    return this.http.get(`${SERVICEURL}orders/allOrders/${storage.userId}`);
   }
 }

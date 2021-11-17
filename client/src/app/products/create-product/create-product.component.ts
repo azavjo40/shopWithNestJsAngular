@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LOCALUSERDATA } from 'src/app/constants';
 import { CreateProductService } from './create-product.service';
 
 @Component({

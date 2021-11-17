@@ -9,6 +9,7 @@ import { ProductModule } from "./product/product.module"
 import { MulterModule } from "@nestjs/platform-express"
 import { ServeStaticModule } from "@nestjs/serve-static"
 import { join } from "path"
+import { OrdersModule } from './orders/orders.module';
 @Module({
   imports: [
     MulterModule.register({ dest: "./upload" }),
@@ -19,6 +20,7 @@ import { join } from "path"
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, ".."),
     }),
+    OrdersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

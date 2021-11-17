@@ -20,7 +20,6 @@ import { ProductDto } from "./dto/create.dto"
 import { editFileName, imageFileFilter } from "./utils/file-upload.utils"
 import { IAnswerMessage } from "./intarface"
 import { ProductService } from "./product.service"
-import { BuyProductDto } from "./dto/buyProduct.dto"
 import { sayHelloInterceptor } from "./interceptors/sayHello.interceptor"
 
 @Controller("product")
@@ -80,26 +79,5 @@ export class ProductController {
   @HttpCode(HttpStatus.OK)
   removeById(@Param("id") id: string): Promise<IAnswerMessage> {
     return this.productService.removeById(id)
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Get("/allOrders/:userId")
-  @HttpCode(HttpStatus.OK)
-  allOrders(@Param("userId") userId: string): Promise<BuyProductDto[]> {
-    return this.productService.allOrders(userId)
-  }
-
-  @Post("/buyProduct")
-  @HttpCode(HttpStatus.OK)
-  buyProduct(
-    @Body(new ValidationPipe()) body: BuyProductDto
-  ): Promise<IAnswerMessage> {
-    return this.productService.buyProduct(body)
-  }
-
-  @Get("/buyPurchaseHistory/:phone")
-  @HttpCode(HttpStatus.OK)
-  buyPurchaseHistory(@Param("phone") phone: string): Promise<BuyProductDto[]> {
-    return this.productService.buyPurchaseHistory(phone)
   }
 }

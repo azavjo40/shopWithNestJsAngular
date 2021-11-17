@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { BasketProductsService } from '../basket-products/basket-products.service';
-import { BuyProductService } from './buy-product.service';
+import { BasketProductsService } from '../../products/basket-products/basket-products.service';
+import { BuyService } from './buy.service';
 import { Router } from '@angular/router';
-import { IFormBuyProduct, ILcalBuyAddress } from '../interface';
+import { IFormBuyProduct, ILcalBuyAddress } from '../../products/interface';
 @Component({
-  selector: 'app-buy-product',
-  templateUrl: './buy-product.component.html',
-  styleUrls: ['./buy-product.component.scss'],
+  selector: 'app-buy',
+  templateUrl: './buy.component.html',
+  styleUrls: ['./buy.component.scss'],
 })
-export class BuyProductComponent implements OnInit {
+export class BuyComponent implements OnInit {
   constructor(
-    private buyProductService: BuyProductService,
+    private buyService: BuyService,
     private basketProductsService: BasketProductsService,
     private router: Router
   ) {}
 
-  dataAddress: ILcalBuyAddress = this.buyProductService.localBuyAddressGet();
+  dataAddress: ILcalBuyAddress = this.buyService.localBuyAddressGet();
 
   form: IFormBuyProduct = {
     name: this.dataAddress ? this.dataAddress.name : '',
@@ -31,7 +31,7 @@ export class BuyProductComponent implements OnInit {
 
   buyProduct() {
     if (parseInt(this.form.totalAmount) > 0) {
-      this.buyProductService.buyProduct(this.form);
+      this.buyService.buyProduct(this.form);
       setTimeout(() => {
         this.form = {
           name: '',

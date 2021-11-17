@@ -3,12 +3,12 @@ import { SERVICEURL } from 'src/app/constants';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { CoreAcsions } from 'src/app/core/reducers/core.acsions';
-import { LOCALBUYADDRESS } from '../constants';
-import { IFormBuyProduct, ILcalBuyAddress } from '../interface';
+import { LOCALBUYADDRESS } from '../../products/constants';
+import { IFormBuyProduct, ILcalBuyAddress } from '../../products/interface';
 @Injectable({
   providedIn: 'root',
 })
-export class BuyProductService {
+export class BuyService {
   constructor(private http: HttpClient, private coreAcsions: CoreAcsions) {}
   buyProduct(form: IFormBuyProduct) {
     this.localBuyAddressSet({
@@ -17,7 +17,7 @@ export class BuyProductService {
       address: form.address,
     });
     this.http
-      .post(`${SERVICEURL}product/buyProduct`, form)
+      .post(`${SERVICEURL}orders/buy`, form)
       .pipe(
         map((item: any) => {
           if (item && item.message) {

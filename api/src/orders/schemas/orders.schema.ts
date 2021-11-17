@@ -1,9 +1,9 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 import { Document } from "mongoose"
-export type BuyProductDocument = BuyProduct & Document
+export type OrdersDocument = Orders & Document
 
 @Schema()
-export class BuyProduct {
+export class Orders {
   @Prop()
   name: string
 
@@ -21,4 +21,4 @@ export class BuyProduct {
   order: Array<any>
 }
 
-export const BuyProductSchema = SchemaFactory.createForClass(BuyProduct)
+export const OrdersSchema = SchemaFactory.createForClass(Orders)

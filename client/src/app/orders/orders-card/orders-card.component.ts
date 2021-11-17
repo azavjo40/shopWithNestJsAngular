@@ -10,9 +10,7 @@ export class OrdersCardComponent implements OnInit {
     this.order = [];
   }
   showChangeCard: boolean = true;
-  ngOnInit(): void {
-    console.log(this.order);
-  }
+  ngOnInit(): void {}
   @Input() order: any;
   changeCard() {
     this.showChangeCard = !this.showChangeCard;

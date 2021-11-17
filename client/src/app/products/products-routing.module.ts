@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { AllProductComponent } from './all-product/all-product.component';
 import { BasketProductsComponent } from './basket-products/basket-products.component';
-import { BuyProductComponent } from './buy-product/buy-product.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 
 const routes: Routes = [
@@ -14,7 +13,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'basketProducts', component: BasketProductsComponent },
-  { path: 'buyProduct', component: BuyProductComponent },
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { IsString, IsArray } from "class-validator"
-export class BuyProductDto {
+export class OrdersDto {
   @IsString()
   name: string
   @IsString()

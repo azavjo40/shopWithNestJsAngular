@@ -1,19 +1,14 @@
 import { Injectable } from "@nestjs/common"
 import { InjectModel } from "@nestjs/mongoose"
 import { Model } from "mongoose"
-import { Auth, AuthDocument } from "src/auth/schemas/auth.schema"
 import { ProductDto } from "./dto/create.dto"
-import { IAnswerMessage, IBuyProductOrder } from "./intarface"
+import { IAnswerMessage } from "./intarface"
 import { Product, ProductDocument } from "./schemas/product.schema"
 import { unlinkSync } from "fs"
-import { BuyProduct, BuyProductDocument } from "./schemas/buyProduct.schema"
-import { BuyProductDto } from "./dto/buyProduct.dto"
 @Injectable()
 export class ProductService {
   constructor(
-    @InjectModel(Product.name) private readonly Product: Model<ProductDocument>,
-    @InjectModel(Auth.name) private User: Model<AuthDocument>,
-    @InjectModel(BuyProduct.name) private buyPro: Model<BuyProductDocument>
+    @InjectModel(Product.name) private readonly Product: Model<ProductDocument>
   ) {}
   async create(body: ProductDto): Promise<IAnswerMessage> {
     try {
@@ -34,8 +29,7 @@ export class ProductService {
 
   async getAll(): Promise<ProductDto[]> {
     try {
-      const productd = await this.Product.find()
-      return productd
+      return await this.Product.find()
     } catch (e) {
       console.log(e)
     }
@@ -67,53 +61,6 @@ export class ProductService {
     try {
       await this.Product.findOneAndDelete({ _id })
       return { message: "You delete product !" }
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  async allOrders(userId: string) {
-    try {
-      return await this.buyPro.find({ userId })
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  async buyProduct(body: BuyProductDto | any): Promise<IAnswerMessage> {
-    try {
-      const result = body.order.reduce(
-        (items: any, { userId, name, type, cost }) => {
-          if (!(userId in items)) items[userId] = []
-          items[userId].push({ userId, name, type, cost })
-          return items
-        },
-        {}
-      )
-      for (let x in result) {
-        const totalAmount = result[x].reduce((our: number, item: any) => {
-          return parseInt(item.cost) + our
-        }, 0)
-        const items: IBuyProductOrder = {
-          name: body.name,
-          phone: body.phone,
-          address: body.address,
-          totalAmount,
-          userId: result[x][0].userId,
-          order: result[x],
-        }
-        await new this.buyPro(items).save()
-      }
-      return { message: "Thank you wait for delivery" }
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  async buyPurchaseHistory(phone: string): Promise<BuyProductDto[]> {
-    try {
-      const buyProHistory = await this.buyPro.find({ phone })
-      return buyProHistory
     } catch (e) {
       console.log(e)
     }
